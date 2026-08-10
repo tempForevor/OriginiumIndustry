@@ -38,6 +38,7 @@ Example Description
     [[dependencies.${mod_id}]]
         modId = "gtceu"
         mandatory = true
+        embedded = true
         versionRange = "[${gtceu_version},)"
         ordering = "AFTER"
         side = "BOTH"

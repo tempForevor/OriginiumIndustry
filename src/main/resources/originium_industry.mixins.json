@@ -1,12 +1,15 @@
-{
-  "required": true,
-  "package": "com.example.examplemod.mixin",
+﻿{
+  "required": false,
+  "package": "com.apcp.originium_industry.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "mixins": [
-    "DummyMixin"
+    "gtceu.OIMixinGTRecipeBuilder",
+    "gtceu.OIMixinParallelHatchPartMachine"
   ],
   "client": [
+  ],
+  "server": [
   ],
   "injectors": {
     "defaultRequire": 1

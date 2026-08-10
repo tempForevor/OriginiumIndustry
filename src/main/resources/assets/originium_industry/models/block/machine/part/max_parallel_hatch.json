@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/block",
   "loader": "gtceu:machine",
-  "machine": "originium_industry:uhv_parallel_hatch",
+  "machine": "originium_industry:max_parallel_hatch",
   "replaceable_textures": [
     "bottom",
     "top",
@@ -10,7 +10,7 @@
   "variants": {
     "is_formed=false": {
       "model": {
-        "parent": "gtceu:block/casings/voltage/uhv",
+        "parent": "gtceu:block/casings/voltage/max",
         "textures": {
           "overlay_front": "gtceu:block/machines/parallel_hatch/overlay_front",
           "overlay_front_emissive": "gtceu:block/machines/parallel_hatch/overlay_front_emissive"
@@ -19,7 +19,7 @@
     },
     "is_formed=true": {
       "model": {
-        "parent": "gtceu:block/casings/voltage/uhv",
+        "parent": "gtceu:block/casings/voltage/max",
         "textures": {
           "overlay_front": "gtceu:block/machines/parallel_hatch/overlay_front",
           "overlay_front_emissive": "gtceu:block/machines/parallel_hatch/overlay_front_emissive"

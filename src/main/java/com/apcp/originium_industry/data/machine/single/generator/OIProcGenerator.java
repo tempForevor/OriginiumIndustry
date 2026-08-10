@@ -30,9 +30,9 @@ import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.function.BiFunction;
 
-public class OriginiumReleaser extends WorkableTieredMachine implements IFancyUIMachine, IEnvironmentalHazardEmitter {
+public class OIProcGenerator extends WorkableTieredMachine implements IFancyUIMachine, IEnvironmentalHazardEmitter {
 
-    public OriginiumReleaser(IMachineBlockEntity holder, int tier,Object... args){
+    public OIProcGenerator(IMachineBlockEntity holder, int tier, Object... args){
         super(holder, tier, GTMachineUtils.genericGeneratorTankSizeFunction, args);
 
     }
@@ -68,7 +68,14 @@ public class OriginiumReleaser extends WorkableTieredMachine implements IFancyUI
         if(EUt <= 0) {
             return GTRecipeModifiers.OC_PERFECT_SUBTICK.applyModifier(this, recipe);
         }
-        int max_parallel = (int)((getMaxVoltage() / EUt) % Integer.MAX_VALUE);
+        float r = getMaxVoltage() * 1.0f / EUt;
+        int max_parallel = 1;
+        if(r >= 1.0f){
+            max_parallel = (int)((getMaxVoltage() / EUt) % Integer.MAX_VALUE);
+        }
+        if(max_parallel <= 1){
+            max_parallel = 1;
+        }
         var parallel = ParallelLogic.getParallelAmountFast(this,recipe,max_parallel);
 
         return recipe.copy(ContentModifier.multiplier(parallel),false);
@@ -103,7 +110,7 @@ public class OriginiumReleaser extends WorkableTieredMachine implements IFancyUI
                 group.addWidget(template);
                 return group;
             }, (template, machine) -> {
-                if (machine instanceof OriginiumReleaser generatorMachine) {
+                if (machine instanceof OIProcGenerator generatorMachine) {
                     var storages = Tables.newCustomTable(new EnumMap<>(IO.class),
                             LinkedHashMap<RecipeCapability<?>, Object>::new);
                     storages.put(IO.IN, ItemRecipeCapability.CAP, generatorMachine.importItems.storage);

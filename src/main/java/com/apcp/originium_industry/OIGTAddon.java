@@ -1,5 +1,7 @@
-package com.example.examplemod;
+package com.apcp.originium_industry;
 
+import com.apcp.originium_industry.data.element.OIExtendElement;
+import com.apcp.originium_industry.data.recipe.OIRecipes;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
@@ -10,11 +12,11 @@ import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 @GTAddon
-public class ExampleGTAddon implements IGTAddon {
+public class OIGTAddon implements IGTAddon {
 
     @Override
     public GTRegistrate getRegistrate() {
-        return ExampleMod.EXAMPLE_REGISTRATE;
+        return OIMod.OIREGISTRATE;
     }
 
     @Override
@@ -22,7 +24,7 @@ public class ExampleGTAddon implements IGTAddon {
 
     @Override
     public String addonModId() {
-        return ExampleMod.MOD_ID;
+        return OIMod.MOD_ID;
     }
 
     @Override
@@ -32,12 +34,12 @@ public class ExampleGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
-        // CustomRecipes.init(provider);
+        OIRecipes.init(provider);
     }
 
     @Override
     public void registerElements() {
-        // CustomElements.init();
+        OIExtendElement.init();
     }
 
     // If you have custom ingredient types, uncomment this & change to match your capability.

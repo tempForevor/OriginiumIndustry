@@ -1,27 +1,21 @@
 package com.apcp.originium_industry.data.element;
 
 
+import com.apcp.originium_industry.api.gtaddon.OIElement;
 import com.gregtechceu.gtceu.api.data.chemical.Element;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 
-public class OIElement {
+public class OIExtendElement {
 
-    public static Element createAndRegister(long protons, long neutrons, long halfLifeSeconds, String decayTo,
-                                            String name, String symbol, boolean isIsotope) {
-        Element element = new Element(protons, neutrons, halfLifeSeconds, decayTo, name, symbol, isIsotope);
-        GTRegistries.ELEMENTS.register(name, element);
-        return element;
-    }
-
-    public static Element Originium;
-    public static Element ActiveOriginium;
-    public static Element Spacetime;
-    public static Element HeatDeadSpace;
+    public static OIElement Originium = new OIElement("originium");
+    public static OIElement ActiveOriginium = new OIElement("active_originium");
+    public static OIElement Spacetime = new OIElement("spacetime");
+    public static OIElement HeatDeadSpace = new OIElement("heat_dead_space");
 
     public static void init(){
-        Originium = createAndRegister(12,23,-1,"","originium","◈",false);
-        ActiveOriginium = createAndRegister(13,23,-1,"","active_originium","▣",true);
-        Spacetime = createAndRegister(1,1,-1,"","spacetime","▢",false);
-        HeatDeadSpace = createAndRegister(-1,-1,-1,"","heat_dead_space","▲",true);
+        Originium.createAndRegister(12,23,-1,"","◈",false);
+        ActiveOriginium.createAndRegister(13,23,-1,"","▣",true);
+        Spacetime.createAndRegister(1,1,-1,"","▢",false);
+        HeatDeadSpace.createAndRegister(-1,-1,-1,"","▲",true);
     }
 }

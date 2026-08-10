@@ -1,4 +1,11 @@
 package com.apcp.originium_industry.api.datagen.langgen.annotation;
 
-public class LangAnnotation {
+import java.lang.annotation.*;
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Repeatable(LangAnnotations.class)
+public @interface LangAnnotation{
+    String locale() default "en_us";
+    String value();
 }

@@ -4,10 +4,10 @@ import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
 
-public class OIExtendRecipes {
+public class OIExtendRecipe {
 
-    public static void init(Consumer<FinishedRecipe> provider){
-
+    public static void init(Consumer<FinishedRecipe> provider) {
+        OIGeneratorRecipes.init(provider);
+        OIOriProcRecipes.init(provider);
     }
-
 }
