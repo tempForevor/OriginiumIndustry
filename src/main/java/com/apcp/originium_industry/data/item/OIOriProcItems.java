@@ -1,6 +1,6 @@
 package com.apcp.originium_industry.data.item;
 
-import com.apcp.originium_industry.OIMod;
+import com.apcp.originium_industry.api.datagen.modelgen.OIItemModelGenerator;
 import com.apcp.originium_industry.api.gtaddon.OIItem;
 
 public class OIOriProcItems {
@@ -26,4 +26,9 @@ public class OIOriProcItems {
                 .setLang("zh_cn","源石相性分离芯").langApply();
     }
 
+    public static void initModel(){
+        OIItemModelGenerator.items.add(ACTIVE_ORIGINIUM_MIXED_UV_FIELD.item.asItem());
+        OIItemModelGenerator.items.add(ORIGINIUM_PROTECTIVE_UV_FIELD.item.asItem());
+        OIItemModelGenerator.items.add(ORIGINIUM_WELL_EXTRACTOR.item.asItem());
+    }
 }

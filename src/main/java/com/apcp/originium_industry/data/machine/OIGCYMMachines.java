@@ -4,7 +4,6 @@ import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.datagen.langgen.LangDataGenerator;
 import com.apcp.originium_industry.api.gtaddon.OIParallelUtil;
 import com.apcp.originium_industry.data.machine.part.SuperParallelHatch;
-import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
@@ -30,6 +29,7 @@ public class OIGCYMMachines {
     public static MachineDefinition SUPER_PARALLEL_HATCH;
 
     public static void init() {
+        if(OIMod.isDataGen())return;
         GCYMMachines.init();
 
         PARALLEL_HATCH = registerTieredMachines(OIMod.OIREGISTRATE,"parallel_hatch",
@@ -53,8 +53,9 @@ public class OIGCYMMachines {
                         .modelProperty(IS_FORMED, false)
                         .modelProperty(GTMachineModelProperties.RECIPE_LOGIC_STATUS, RecipeLogic.Status.IDLE)
                         .model(createWorkableTieredHullMachineModel(
-                                GTCEu.id("block/machines/parallel_hatch"))
-                                .andThen((ctx, prov, model) -> model.addReplaceableTextures("bottom", "top", "side")))
+                                OIMod.id("block/machine/part/" + VN[tier].toLowerCase(Locale.ROOT) + "_parallel_hatch"))
+                                .andThen((ctx, prov, model) -> model
+                                        .addReplaceableTextures("bottom", "top", "side")))
                         .tooltips(Component.translatable("gtceu.machine.parallel_hatch_mk_" + tier + ".tooltip"),
                                 Component.translatable("gtceu.part_sharing.disabled"))
                         .register(),

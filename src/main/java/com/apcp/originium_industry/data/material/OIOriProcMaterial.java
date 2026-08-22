@@ -19,8 +19,6 @@ public class OIOriProcMaterial {
                 .formula(OIExtendElement.Originium.formula+"3"+GTMaterials.Fluorine.getChemicalFormula()+"12?")
                 .color(0x122312+0x000046).secondaryColor(0x122312c+0x0000460));
 
-
-
         IMPURE_ORIGINIUM.buildProcDust(builder->builder
                 .formula(OIExtendElement.Originium.formula+"?")
                 .color(0x122312-0x050505).secondaryColor(0x122312c-0x0505050));

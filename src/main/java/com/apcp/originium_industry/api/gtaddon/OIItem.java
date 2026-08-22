@@ -7,15 +7,20 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Consumer;
 
 public class OIItem {
 
+    public static DeferredRegister<Item> itemDeferredRegister = DeferredRegister.create(ForgeRegistries.ITEMS,OIMod.MOD_ID);
+
     public ItemEntry<Item> item;
     public String id;
 
     public LangModel lang = new LangModel();
+    public LangModel tooltipLang = new LangModel();
 
     public OIItem(String id){
         this.id = id;
@@ -45,6 +50,7 @@ public class OIItem {
     }
     public OIItem langApply(){
         lang.apply((k,v)-> LangDataGenerator.normal.getCollector(k).addTranslation("item."+OIMod.MOD_ID+"."+id,v));
+        tooltipLang.apply((k,v)-> LangDataGenerator.normal.getCollector(k).addTranslation("item."+OIMod.MOD_ID+"."+id+".tooltip",v));
         return this;
     }
 }

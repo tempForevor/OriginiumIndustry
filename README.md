@@ -1,3 +1,3 @@
 # Originium Industry
 
-This is a gregtech modern addon that add contents about originium.
+This is a gregtech modern addon that adds contents about originium.

@@ -1,13 +1,13 @@
 package com.apcp.originium_industry.api.datagen;
 
 import com.apcp.originium_industry.OIMod;
-import com.apcp.originium_industry.api.datagen.langgen.GTCEuLangDataOverwriter;
 import com.apcp.originium_industry.api.datagen.langgen.LangDataGenerator;
-import com.gregtechceu.gtceu.GTCEu;
+import com.apcp.originium_industry.api.datagen.modelgen.OIBlockModelGenerator;
+import com.apcp.originium_industry.api.datagen.modelgen.OIItemModelGenerator;
+import com.apcp.originium_industry.api.datagen.modelgen.OIModelInitializer;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceKey;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,5 +27,10 @@ public class OIGeneralDataGenerators {
 
         generator.addProvider(event.includeClient(),new LangDataGenerator(output, "en_us"));
         generator.addProvider(event.includeClient(),new LangDataGenerator(output, "zh_cn"));
+
+        OIModelInitializer.init();
+
+        generator.addProvider(event.includeClient(),new OIBlockModelGenerator(generator,helper));
+        generator.addProvider(event.includeClient(),new OIItemModelGenerator(generator,helper));
     }
 }

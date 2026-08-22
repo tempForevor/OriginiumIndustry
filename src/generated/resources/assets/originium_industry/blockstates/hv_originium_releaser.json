@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "originium_industry:block/machine/hv_originium_releaser",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "originium_industry:block/machine/hv_originium_releaser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "originium_industry:block/machine/hv_originium_releaser"
+    },
+    "facing=south": {
+      "model": "originium_industry:block/machine/hv_originium_releaser",
+      "y": 180
+    },
+    "facing=up": {
+      "gtceu:z": 180,
+      "model": "originium_industry:block/machine/hv_originium_releaser",
+      "x": 270
+    },
+    "facing=west": {
+      "model": "originium_industry:block/machine/hv_originium_releaser",
+      "y": 270
+    }
+  }
+}

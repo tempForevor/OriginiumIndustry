@@ -1,12 +1,14 @@
 package com.apcp.originium_industry.data.recipe.originium_industry;
 
 import com.apcp.originium_industry.OIMod;
+import com.apcp.originium_industry.data.block.OICustomBlocks;
 import com.apcp.originium_industry.data.item.OIOriProcItems;
 import com.apcp.originium_industry.data.material.OIElementMaterial;
 import com.apcp.originium_industry.data.material.OIOriProcMaterial;
 import com.apcp.originium_industry.data.recipe_type.OICustomRecipeType;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
@@ -16,6 +18,7 @@ import java.util.function.Consumer;
 
 public class OIOriProcRecipes {
     public static void init(Consumer<FinishedRecipe> consumer){
+        // Proc 1
         OICustomRecipeType.ORIGINIUM_ENERGY_RELEASE.recipeBuilder("ev_originium_proc")
                 .inputItems(TagPrefix.gemExquisite, OIElementMaterial.ActiveOriginium.material)
                 .notConsumable(GTItems.FIELD_GENERATOR_EV.asStack(1))
@@ -66,7 +69,7 @@ public class OIOriProcRecipes {
 
         // TODO: Placeholder
         GTRecipeTypes.LARGE_CHEMICAL_RECIPES.recipeBuilder(OIMod.id("originium_primitive_pure_proc"))
-                .inputItems(TagPrefix.dust,OIOriProcMaterial.HALF_IMPURE_ORIGINIUM.material,128)
+                .inputItems(TagPrefix.dust,OIOriProcMaterial.HALF_IMPURE_ORIGINIUM.material,512)
                 .inputFluids(GTMaterials.HydrogenPeroxide,8000)
                 .outputItems(TagPrefix.dust,OIElementMaterial.Originium.material,1)
                 .outputFluids(GTMaterials.Fluorine.getFluid(8000))
@@ -74,6 +77,15 @@ public class OIOriProcRecipes {
                 .duration(20*2)
                 .circuitMeta(23)
                 .EUt(GTValues.V[GTValues.LuV],1)
+                .save(consumer);
+
+        // Casing Proc
+        GTRecipeTypes.CHEMICAL_BATH_RECIPES.recipeBuilder(OIMod.id("casing_originium_bath"))
+                .inputItems(GTBlocks.CASING_STAINLESS_CLEAN.get().asItem(),1)
+                .inputFluids(OIElementMaterial.Originium.material, 1000)
+                .outputItems(OICustomBlocks.ORIGINIUM_CASING_t1.block.get().asItem(),1)
+                .duration(20*2)
+                .EUt(GTValues.V[GTValues.IV],1)
                 .save(consumer);
     }
 }

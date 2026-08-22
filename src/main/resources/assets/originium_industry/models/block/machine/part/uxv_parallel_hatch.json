@@ -8,16 +8,7 @@
     "side"
   ],
   "variants": {
-    "is_formed=false": {
-      "model": {
-        "parent": "gtceu:block/casings/voltage/uxv",
-        "textures": {
-          "overlay_front": "gtceu:block/machines/parallel_hatch/overlay_front",
-          "overlay_front_emissive": "gtceu:block/machines/parallel_hatch/overlay_front_emissive"
-        }
-      }
-    },
-    "is_formed=true": {
+    "": {
       "model": {
         "parent": "gtceu:block/casings/voltage/uxv",
         "textures": {

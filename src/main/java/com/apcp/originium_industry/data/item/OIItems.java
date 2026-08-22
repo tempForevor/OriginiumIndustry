@@ -17,12 +17,19 @@ public class OIItems {
                             .withSearchBar();
                 }).register();
         OIOriProcItems.init();
+        OITechTreeDataItems.init();
     }
 
 
     public static void initTranslation(){
         OIOriProcItems.initTranslation();
+        OITechTreeDataItems.initTranslation();
         LangDataGenerator.normal.getCollector("zh_cn").addTranslation("originium_industry.creative_tab","源石工业");
         LangDataGenerator.normal.getCollector("en_us").addTranslation("originium_industry.creative_tab","Originium Industry");
+    }
+
+    public static void initModel(){
+        OIOriProcItems.initModel();
+        OITechTreeDataItems.initModel();
     }
 }

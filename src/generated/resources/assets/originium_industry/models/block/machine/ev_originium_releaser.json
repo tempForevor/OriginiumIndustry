@@ -1,0 +1,24 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "gtceu:machine",
+  "machine": "originium_industry:ev_originium_releaser",
+  "replaceable_textures": [
+    "bottom",
+    "top",
+    "side"
+  ],
+  "variants": {
+    "recipe_logic_status=idle": {
+      "model": "originium_industry:block/ev_originium_releaser"
+    },
+    "recipe_logic_status=suspend": {
+      "model": "originium_industry:block/ev_originium_releaser"
+    },
+    "recipe_logic_status=waiting": {
+      "model": "originium_industry:block/ev_originium_releaser"
+    },
+    "recipe_logic_status=working": {
+      "model": "originium_industry:block/ev_originium_releaser"
+    }
+  }
+}

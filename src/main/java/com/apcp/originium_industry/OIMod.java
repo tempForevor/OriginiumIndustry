@@ -1,10 +1,14 @@
 package com.apcp.originium_industry;
 
+import com.apcp.originium_industry.api.gtaddon.OIItem;
+import com.apcp.originium_industry.api.tectree.TecTree;
 import com.apcp.originium_industry.config.OIConfigHolder;
+import com.apcp.originium_industry.data.block.OICustomBlocks;
 import com.apcp.originium_industry.data.item.OIItems;
 import com.apcp.originium_industry.data.machine.OIMachines;
 import com.apcp.originium_industry.data.material.OIExtendMaterial;
 import com.apcp.originium_industry.data.recipe_type.OICustomRecipeType;
+import com.apcp.originium_industry.data.tectree.OITecTreeItems;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
@@ -35,10 +39,11 @@ public class OIMod {
     public static final String CONFIG_ID = MOD_ID;
     public static final Logger LOGGER = LogManager.getLogger();
     public static GTRegistrate OIREGISTRATE = GTRegistrate.create(OIMod.MOD_ID);
+    public static TecTree TEC_TREE = new TecTree();
 
     public OIMod() {
 
-        if (!isDataGen()) {
+        if (true) {
             IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
             modEventBus.addListener(this::commonSetup);
@@ -58,9 +63,12 @@ public class OIMod {
             MinecraftForge.EVENT_BUS.register(this);
 
             OIREGISTRATE.registerRegistrate();
-
+            OIItem.itemDeferredRegister.register(modEventBus);
             OIItems.init();
+            OITecTreeItems.init(TEC_TREE);
+            OICustomBlocks.init();
         }
+
 
         OIConfigHolder.init();
     }
@@ -130,6 +138,10 @@ public class OIMod {
      */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
         // CustomMachines.init();
+        LogManager.getLogger().info("[OIRegisterMachines] Registering machines");
+        _registerMachines();
+    }
+    private void _registerMachines(){
         OIMachines.init();
     }
 

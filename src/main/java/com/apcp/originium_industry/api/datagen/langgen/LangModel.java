@@ -6,13 +6,14 @@ import java.util.function.BiConsumer;
 public class LangModel {
     public HashMap<String, String> langs = new HashMap<>();
 
-    public void setLang(String value){
-        setLang("en_us",value);
+    public LangModel setLang(String value){
+        return setLang("en_us",value);
     }
 
-    public void setLang(String locale,String value) {
+    public LangModel setLang(String locale,String value) {
         langs.remove(locale);
         langs.put(locale,value);
+        return this;
     }
 
     public void apply(BiConsumer<String,String> consumer){

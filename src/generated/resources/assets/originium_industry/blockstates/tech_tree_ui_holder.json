@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "originium_industry:block/machine/tech_tree_ui_holder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "originium_industry:block/machine/tech_tree_ui_holder"
+    },
+    "facing=south": {
+      "model": "originium_industry:block/machine/tech_tree_ui_holder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "originium_industry:block/machine/tech_tree_ui_holder",
+      "y": 270
+    }
+  }
+}

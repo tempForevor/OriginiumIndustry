@@ -1,0 +1,24 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "gtceu:machine",
+  "machine": "originium_industry:zpm_originium_deactivator",
+  "replaceable_textures": [
+    "bottom",
+    "top",
+    "side"
+  ],
+  "variants": {
+    "recipe_logic_status=idle": {
+      "model": "originium_industry:block/zpm_originium_deactivator"
+    },
+    "recipe_logic_status=suspend": {
+      "model": "originium_industry:block/zpm_originium_deactivator"
+    },
+    "recipe_logic_status=waiting": {
+      "model": "originium_industry:block/zpm_originium_deactivator"
+    },
+    "recipe_logic_status=working": {
+      "model": "originium_industry:block/zpm_originium_deactivator"
+    }
+  }
+}

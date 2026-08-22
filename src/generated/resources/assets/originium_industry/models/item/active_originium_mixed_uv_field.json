@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "originium_industry:item/active_originium_mixed_uv_field"
+  }
+}

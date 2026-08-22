@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "originium_industry:block/machines/casings/solid/machine_casing_originium"
+  }
+}

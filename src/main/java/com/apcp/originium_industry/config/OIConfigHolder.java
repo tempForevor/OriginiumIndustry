@@ -48,9 +48,33 @@ public final class OIConfigHolder {
     @Configurable.Comment("This controls the modifier of the GTM recipes' speed. ( 0.1 -> ( 20s -> 2s ) )")
     @Configurable.UpdateRestriction(UpdateRestrictions.GAME_RESTART)
     @Configurable.DecimalRange(min=0.0001, max=10.0)
-    @LangAnnotation("recipe Speed Modifier")
+    @LangAnnotation("Recipe Speed Modifier")
+    @LangAnnotation(locale = "zh_cn",value = "配方时间系数")
     public double recipeSpeedModifier = 0.1;
 
+    @Configurable
+    @Configurable.Comment("This controls the max slot size of the Super ME Pattern Buffer.")
+    @Configurable.UpdateRestriction(UpdateRestrictions.GAME_RESTART)
+    @Configurable.Range(min=1, max=18)
+    @LangAnnotation("Max ME Pattern Buffer Row Size")
+    @LangAnnotation(locale = "zh_cn",value = "ME样板总成最大列数")
+    public int maxMEPatternRow = 9;
+    @Configurable
+    @Configurable.Comment("This controls the max slot size of the Super ME Pattern Buffer.")
+    @Configurable.UpdateRestriction(UpdateRestrictions.GAME_RESTART)
+    @Configurable.Range(min=1, max=18)
+    @LangAnnotation("Max ME Pattern Buffer Col Size")
+    @LangAnnotation(locale = "zh_cn",value = "ME样板总成最大行数")
+    public int maxMEPatternCol = 6;
+    @Configurable
+    @Configurable.Comment("This controls the max slot size of the Super ME Pattern Buffer.")
+    @Configurable.UpdateRestriction(UpdateRestrictions.GAME_RESTART)
+    @Configurable.Range(min=1, max=18)
+    @LangAnnotation("Max ME Pattern Buffer Page Size")
+    @LangAnnotation(locale = "zh_cn",value = "ME样板总成最大页数")
+    public int maxMEPatternPage = 3;
+
+    // Exactly, it is hard-coded in the code,since I find no easy ways to dynamic change the translations in normal framework till now.
     // Now parallel = parallelScale ^ Voltage(ulv=0).
     public int parallelScale = 4;
 
@@ -74,6 +98,7 @@ public final class OIConfigHolder {
     @Configurable.UpdateRestriction(UpdateRestrictions.GAME_RESTART)
     @Configurable.Range(min=0,max=1)
     @LangAnnotation("difficulty")
+    @LangAnnotation(locale = "zh_cn",value = "难度")
     public int difficulty = 0;
 
 }

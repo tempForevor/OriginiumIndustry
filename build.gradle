@@ -48,6 +48,10 @@ repositories {
         name = "BlameJared"
         url = "https://maven.blamejared.com/"
     }
+    maven { // JEI mirror, AE2
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
     maven {
         url = "https://maven.theillusivec4.top/"
     }
@@ -166,11 +170,14 @@ dependencies {
     modCompileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 //    modRuntimeOnly("dev.emi:emi-forge:${emi_version}+${minecraft_version}")
-    modRuntimeOnly("curse.maven:jade-324717:5390389")
+
+    modImplementation("curse.maven:jade-324717:5390389")
+    // AE2
+    modImplementation("appeng:appliedenergistics2-forge:${ae2_version}")
 
     // GregTech and dependencies
     modImplementation("com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtceu_version}:slim") { transitive = false }
-     modImplementation("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
+    modImplementation("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
     modImplementation("com.tterrag.registrate:Registrate:${registrate_version}")
     modImplementation("dev.toma.configuration:configuration-${minecraft_version}:${configuration_version}")
     // lombok

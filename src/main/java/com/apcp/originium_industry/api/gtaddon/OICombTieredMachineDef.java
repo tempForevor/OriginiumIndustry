@@ -3,9 +3,12 @@ package com.apcp.originium_industry.api.gtaddon;
 import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.datagen.langgen.LangDataGenerator;
 import com.apcp.originium_industry.api.datagen.langgen.LangModel;
+import com.apcp.originium_industry.api.datagen.modelgen.OIBlockModelGenerator;
+import com.apcp.originium_industry.api.datagen.modelgen.collector.OIBlockModelInfo;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 public class OICombTieredMachineDef {
@@ -13,6 +16,7 @@ public class OICombTieredMachineDef {
     public MachineDefinition[] machines;
     public String id;
     public LangModel lang = new LangModel();
+    public LangModel tooltipLang = new LangModel();
 
     public OICombTieredMachineDef(String id){
         this.id = id;
@@ -39,8 +43,19 @@ public class OICombTieredMachineDef {
     public OICombTieredMachineDef langApply(int[] tiers){
         for(int i : tiers){
             lang.apply((k,v)-> LangDataGenerator.normal.getCollector(k).addTranslation(generateId(i),generateLang(i,v)));
+            tooltipLang.apply((k,v)-> LangDataGenerator.normal.getCollector(k).addTranslation(generateId(i)+".tooltip",v));
         }
         return this;
     }
 
+    public OICombTieredMachineDef initModels(){
+        Arrays.stream(machines)
+                .forEach(machine -> {
+                    if(machine == null) return;
+                    OIBlockModelGenerator.collector.modelGenerators
+                            .put(machine.getBlock(),
+                                    OIBlockModelInfo.buildTieredPlaceholderMachine(machine));
+                });
+        return this;
+    }
 }
