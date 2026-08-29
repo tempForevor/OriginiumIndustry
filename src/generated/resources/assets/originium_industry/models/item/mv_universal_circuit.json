@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "originium_industry:item/mv_universal_circuit"
+  }
+}
