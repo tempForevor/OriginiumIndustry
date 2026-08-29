@@ -15,12 +15,11 @@ public class TecTreeLangDataCollector extends LangDataCollector {
         addTranslation(tecInfo.generateLocalizeInfoId(),information);
     }
 
-    public void addTranslation(String key,String value){
-        if(langs.containsKey(key)) return;
-        langs.put(key,value);
+    public void addTranslation(String key, String value) {
+        super.addTranslation(key, value);
     }
 
-    public void foreach(BiConsumer<String, String> consumer){
-        langs.forEach(consumer);
+    public void foreach(BiConsumer<String, String> consumer) {
+        super.foreach(consumer);
     }
 }

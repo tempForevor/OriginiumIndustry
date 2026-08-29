@@ -1,4 +1,4 @@
-package com.apcp.originium_industry.data.machine.single.uiholder;
+package com.apcp.originium_industry.commmon.machine.single.uiholder;
 
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.api.machine.MetaMachine;

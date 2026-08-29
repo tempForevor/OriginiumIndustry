@@ -1,4 +1,4 @@
-package com.apcp.originium_industry.data.machine.single.generator;
+package com.apcp.originium_industry.commmon.machine.single.generator;
 
 import com.google.common.collect.Tables;
 import com.gregtechceu.gtceu.api.GTValues;

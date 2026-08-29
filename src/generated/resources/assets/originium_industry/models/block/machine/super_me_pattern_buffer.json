@@ -12,10 +12,10 @@
       "model": {
         "parent": "gtceu:block/machine/template/part/hatch_machine",
         "textures": {
-          "bottom": "gtceu:block/casings/voltage/ulv/bottom",
+          "bottom": "gtceu:block/casings/voltage/max/bottom",
           "overlay": "gtceu:block/overlay/appeng/me_buffer_hatch",
-          "side": "gtceu:block/casings/voltage/ulv/side",
-          "top": "gtceu:block/casings/voltage/ulv/top"
+          "side": "gtceu:block/casings/voltage/max/side",
+          "top": "gtceu:block/casings/voltage/max/top"
         }
       }
     },
@@ -23,10 +23,10 @@
       "model": {
         "parent": "gtceu:block/machine/template/part/hatch_machine_color_ring",
         "textures": {
-          "bottom": "gtceu:block/casings/voltage/ulv/bottom",
+          "bottom": "gtceu:block/casings/voltage/max/bottom",
           "overlay": "gtceu:block/overlay/appeng/me_buffer_hatch",
-          "side": "gtceu:block/casings/voltage/ulv/side",
-          "top": "gtceu:block/casings/voltage/ulv/top"
+          "side": "gtceu:block/casings/voltage/max/side",
+          "top": "gtceu:block/casings/voltage/max/top"
         }
       }
     },
@@ -34,10 +34,10 @@
       "model": {
         "parent": "gtceu:block/machine/template/part/hatch_machine",
         "textures": {
-          "bottom": "gtceu:block/casings/voltage/ulv/bottom",
+          "bottom": "gtceu:block/casings/voltage/max/bottom",
           "overlay": "gtceu:block/overlay/appeng/me_buffer_hatch",
-          "side": "gtceu:block/casings/voltage/ulv/side",
-          "top": "gtceu:block/casings/voltage/ulv/top"
+          "side": "gtceu:block/casings/voltage/max/side",
+          "top": "gtceu:block/casings/voltage/max/top"
         }
       }
     },
@@ -45,10 +45,10 @@
       "model": {
         "parent": "gtceu:block/machine/template/part/hatch_machine_color_ring",
         "textures": {
-          "bottom": "gtceu:block/casings/voltage/ulv/bottom",
+          "bottom": "gtceu:block/casings/voltage/max/bottom",
           "overlay": "gtceu:block/overlay/appeng/me_buffer_hatch",
-          "side": "gtceu:block/casings/voltage/ulv/side",
-          "top": "gtceu:block/casings/voltage/ulv/top"
+          "side": "gtceu:block/casings/voltage/max/side",
+          "top": "gtceu:block/casings/voltage/max/top"
         }
       }
     }

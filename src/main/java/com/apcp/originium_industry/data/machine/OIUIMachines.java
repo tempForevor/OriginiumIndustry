@@ -3,7 +3,7 @@ package com.apcp.originium_industry.data.machine;
 import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.datagen.modelgen.collector.OIBlockModelUtil;
 import com.apcp.originium_industry.api.gtaddon.OIMachineDef;
-import com.apcp.originium_industry.data.machine.single.uiholder.TecTreeHolder;
+import com.apcp.originium_industry.commmon.machine.single.uiholder.TecTreeHolder;
 import com.gregtechceu.gtceu.api.GTValues;
 import net.minecraft.network.chat.Component;
 
@@ -19,10 +19,10 @@ public class OIUIMachines {
     }
     public static void initTranslation(){
         TECH_TREE_UI_HOLDER.tooltipLang
-                .setLang("TecTree Manager,with infinitive possibilities.")
-                .setLang("zh_cn","TecTree 管理器,带给你无限可能.");
-        TECH_TREE_UI_HOLDER.setLang("TecTree Manager")
-                .setLang("zh_cn","TecTree 管理器")
+                .setLang("The first step towards the truth...")
+                .setLang("zh_cn","向真相迈出的第一步...");
+        TECH_TREE_UI_HOLDER.setLang("[Ori-Eps] Runic Terminal")
+                .setLang("zh_cn","[Ori-Eps] 符文式终端")
                 .applyLang();
     }
     @Deprecated

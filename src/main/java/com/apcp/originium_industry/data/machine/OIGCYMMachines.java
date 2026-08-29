@@ -3,7 +3,7 @@ package com.apcp.originium_industry.data.machine;
 import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.datagen.langgen.LangDataGenerator;
 import com.apcp.originium_industry.api.gtaddon.OIParallelUtil;
-import com.apcp.originium_industry.data.machine.part.SuperParallelHatch;
+import com.apcp.originium_industry.commmon.machine.part.SuperParallelHatch;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
@@ -56,7 +56,7 @@ public class OIGCYMMachines {
                                 OIMod.id("block/machine/part/" + VN[tier].toLowerCase(Locale.ROOT) + "_parallel_hatch"))
                                 .andThen((ctx, prov, model) -> model
                                         .addReplaceableTextures("bottom", "top", "side")))
-                        .tooltips(Component.translatable("gtceu.machine.parallel_hatch_mk_" + tier + ".tooltip"),
+                        .tooltips(Component.translatable("gtceu.machine.parallel_hatch_mk_" + tier + ".tooltip",OIParallelUtil.normalMaxParallel(tier)),
                                 Component.translatable("gtceu.part_sharing.disabled"))
                         .register(),
                 GTValues.tiersBetween(UHV,MAX));
@@ -68,7 +68,7 @@ public class OIGCYMMachines {
                 machine.setTooltipBuilder(
                         (item,builder) -> {
                             builder.add(
-                                    Component.translatable("gtceu.machine.parallel_hatch_mk_" + (finalI) + ".tooltip")
+                                    Component.translatable("gtceu.machine.parallel_hatch_mk_" + (finalI) + ".tooltip",OIParallelUtil.normalMaxParallel(finalI))
                             );
                             builder.add(Component.translatable("gtceu.part_sharing.disabled"));
                         }
@@ -96,13 +96,13 @@ public class OIGCYMMachines {
                             VNF[tier] + " Parallel Hatch");
             LangDataGenerator.normal.getCollector("en_us")
                     .addTranslation("gtceu.machine.parallel_hatch_mk_"+tier+".tooltip",
-                            "Max Parallel : "+ OIParallelUtil.normalMaxParallel(tier));
+                            "Max Parallel : %d");
             LangDataGenerator.normal.getCollector("zh_cn")
                     .addTranslation("block.originium_industry." + VN[tier].toLowerCase(Locale.ROOT) + "_parallel_hatch",
                             VNF[tier] + " 并行控制仓");
             LangDataGenerator.normal.getCollector("zh_cn")
                     .addTranslation("gtceu.machine.parallel_hatch_mk_"+tier+".tooltip",
-                            "最大并行数 : "+ OIParallelUtil.normalMaxParallel(tier));
+                            "最大并行数 : %d");
 
         }
         LangDataGenerator.normal.getCollector("en_us")

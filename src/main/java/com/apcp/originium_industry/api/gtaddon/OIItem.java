@@ -3,10 +3,12 @@ package com.apcp.originium_industry.api.gtaddon;
 import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.datagen.langgen.LangDataGenerator;
 import com.apcp.originium_industry.api.datagen.langgen.LangModel;
+import com.gregtechceu.gtceu.api.item.ComponentItem;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.common.util.NonNullFunction;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -16,7 +18,7 @@ public class OIItem {
 
     public static DeferredRegister<Item> itemDeferredRegister = DeferredRegister.create(ForgeRegistries.ITEMS,OIMod.MOD_ID);
 
-    public ItemEntry<Item> item;
+    public ItemEntry<? extends Item> item;
     public String id;
 
     public LangModel lang = new LangModel();
@@ -26,7 +28,7 @@ public class OIItem {
         this.id = id;
     }
 
-    public OIItem setItem(ItemEntry<Item> item){
+    public OIItem setItem(ItemEntry<? extends Item> item){
         this.item = item;
         return this;
     }
@@ -34,8 +36,15 @@ public class OIItem {
     /**
      * @param consumer It will call Registrate.item(id,Item::new) to create a registrateBuilder.It will automatically call the register() and setItem() too.
     * */
-    public OIItem register(Consumer<ItemBuilder<Item, GTRegistrate>> consumer){
-        var registrateItemBuilder = OIMod.OIREGISTRATE.item(id, Item::new);
+    public OIItem register(Consumer<ItemBuilder<ComponentItem, GTRegistrate>> consumer){
+        var registrateItemBuilder = OIMod.OIREGISTRATE.item(id, ComponentItem::create);
+        consumer.accept(registrateItemBuilder);
+        return setItem(registrateItemBuilder.register());
+    }
+
+    @SuppressWarnings("UnusedReturnValue")
+    public <T extends Item> OIItem rawRegister(NonNullFunction<Item.Properties,T> factory, Consumer<ItemBuilder<T, GTRegistrate>> consumer){
+        var registrateItemBuilder = OIMod.OIREGISTRATE.item(id, factory::apply);
         consumer.accept(registrateItemBuilder);
         return setItem(registrateItemBuilder.register());
     }

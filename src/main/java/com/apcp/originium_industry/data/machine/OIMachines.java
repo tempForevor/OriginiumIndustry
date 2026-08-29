@@ -6,12 +6,14 @@ public class OIMachines {
         OIGCYMMachines.init();
         OICustomMachines.init();
         OIUIMachines.init();
+        OICustomPartMachines.init();
     }
 
     public static void initTranslation(){
         OIGCYMMachines.initTranslation();
         OICustomMachines.initTranslation();
         OIUIMachines.initTranslation();
+        OICustomPartMachines.initTranslation();
     }
     @Deprecated
     public static void initModel(){

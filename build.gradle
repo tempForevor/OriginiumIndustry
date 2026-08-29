@@ -26,6 +26,13 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven {
+        name = 'Central 2'
+        url = 'https://repo1.maven.org/maven2'
+        content {
+            includeGroup 'com.google'
+        }
+    }
+    maven {
         name = 'GTCEu Maven'
         url = 'https://maven.gtceu.com'
         content {
@@ -161,6 +168,10 @@ apply from: "$rootDir/gradle/scripts/spotless.gradle"
 
 dependencies {
     compileOnly("org.jetbrains:annotations:26.0.1")
+
+    // Auto-Service 神秘反射秘密道具
+    annotationProcessor 'com.google.auto.service:auto-service:1.1.1'
+    compileOnly 'com.google.auto.service:auto-service-annotations:1.1.1'
 
     // Mixin
     annotationProcessor('org.spongepowered:mixin:0.8.5:processor')

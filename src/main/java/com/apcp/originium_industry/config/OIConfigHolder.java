@@ -1,15 +1,12 @@
 package com.apcp.originium_industry.config;
 
 import com.apcp.originium_industry.OIMod;
-import com.apcp.originium_industry.api.datagen.langgen.LangDataGenerator;
 import com.apcp.originium_industry.api.datagen.langgen.annotation.LangAnnotation;
-import com.apcp.originium_industry.api.datagen.langgen.annotation.LangAnnotations;
 import dev.toma.configuration.Configuration;
 import dev.toma.configuration.config.Config;
 import dev.toma.configuration.config.Configurable;
 import dev.toma.configuration.config.UpdateRestrictions;
 import dev.toma.configuration.config.format.ConfigFormats;
-import org.apache.commons.codec.language.bm.Lang;
 
 
 @Config(id=OIMod.CONFIG_ID,group= OIMod.MOD_ID)
@@ -19,15 +16,13 @@ public final class OIConfigHolder {
     private static final Object LOCK = new Object();
 
     public static void init(){
-        synchronized (LOCK){
-            if(INSTANCE == null) {
-                dev.toma.configuration.config.ConfigHolder<OIConfigHolder> configHolder = Configuration.registerConfig(OIConfigHolder.class, ConfigFormats.YAML);
-                INSTANCE = configHolder.getConfigInstance();
-            }
-            INSTANCE.realDifficulty = Difficulty.values()[INSTANCE.difficulty];
-
-            GTConfigInit.init();
+        if(INSTANCE == null) {
+            dev.toma.configuration.config.ConfigHolder<OIConfigHolder> configHolder = Configuration.registerConfig(OIConfigHolder.class, ConfigFormats.YAML);
+            INSTANCE = configHolder.getConfigInstance();
         }
+        INSTANCE.realDifficulty = Difficulty.values()[INSTANCE.difficulty];
+
+        GTConfigInit.init();
     }
 
     public static void initTranslation(){
@@ -76,6 +71,12 @@ public final class OIConfigHolder {
 
     // Exactly, it is hard-coded in the code,since I find no easy ways to dynamic change the translations in normal framework till now.
     // Now parallel = parallelScale ^ Voltage(ulv=0).
+    @Configurable
+    @Configurable.Comment("Notice : now parallel = parallelScale ^ Voltage(ulv=0).")
+    @Configurable.UpdateRestriction(UpdateRestrictions.GAME_RESTART)
+    @Configurable.Range(min=1, max=18)
+    @LangAnnotation("Parallel Scale")
+    @LangAnnotation(locale = "zh_cn",value = "并行计算底数(Parallel Scale)")
     public int parallelScale = 4;
 
     public enum Difficulty{
@@ -101,4 +102,21 @@ public final class OIConfigHolder {
     @LangAnnotation(locale = "zh_cn",value = "难度")
     public int difficulty = 0;
 
+    @Configurable
+    public Debug debug = new Debug();
+
+    @LangAnnotation("Debug")
+    public static class Debug{
+        @Configurable
+        @Configurable.Comment("This controls whether to log the AEKeys pushed into the pattern buffer.")
+        @Configurable.UpdateRestriction(UpdateRestrictions.NONE)
+        @LangAnnotation("Log AEKeys pushed into the pattern buffer.")
+        public boolean outputMEPatternBufferPushed = true;
+
+        @Configurable
+        @Configurable.Comment("This controls whether to log the extracted ingredients of virtual item in specific methods.")
+        @Configurable.UpdateRestriction(UpdateRestrictions.NONE)
+        @LangAnnotation("Log extracted Ingredients in class VirtualItemBehavior.")
+        public boolean outputExtractedVirtualIngredients = true;
+    }
 }

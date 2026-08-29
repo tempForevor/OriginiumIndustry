@@ -5,7 +5,7 @@ import com.apcp.originium_industry.data.block.OICustomBlocks;
 import com.apcp.originium_industry.data.item.OIOriProcItems;
 import com.apcp.originium_industry.data.material.OIElementMaterial;
 import com.apcp.originium_industry.data.material.OIOriProcMaterial;
-import com.apcp.originium_industry.data.recipe_type.OICustomRecipeType;
+import com.apcp.originium_industry.commmon.recipe_type.OICustomRecipeType;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTBlocks;

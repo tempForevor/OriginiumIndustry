@@ -19,4 +19,9 @@ public class LangModel {
     public void apply(BiConsumer<String,String> consumer){
         langs.forEach(consumer);
     }
+    public void normalApply(String key){
+        apply(
+                (k,v)->LangDataGenerator.normal.getCollector(k).addTranslation(key,v)
+        );
+    }
 }

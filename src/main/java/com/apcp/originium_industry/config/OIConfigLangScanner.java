@@ -35,12 +35,25 @@ public class OIConfigLangScanner {
     }
     public static <T> void scanDeep(Class<T> configClass,String parent){
         if(!configClass.isAnnotationPresent(Config.class)){
-            OIMod.LOGGER.warn("{} is not annotated with @Config!", configClass.getSimpleName());
-            return;
+            OIMod.LOGGER.warn("{} is not annotated with @Config!Maybe a sub-config?", configClass.getSimpleName());
+        }
+        if(configClass.isAnnotationPresent(LangAnnotations.class)){
+            var annotations = configClass.getAnnotation(LangAnnotations.class);
+            for(var annotation : annotations.value()){
+                var key = "config." + OIMod.CONFIG_ID + ".option." + parent + configClass.getSimpleName();
+                LangDataGenerator.normal.getCollector(annotation.locale()).addTranslation(key,annotation.value());
+            }
+        }else if(configClass.isAnnotationPresent(LangAnnotation.class)){
+            var annotation = configClass.getAnnotation(LangAnnotation.class);
+            var key = "config." + OIMod.CONFIG_ID + ".option." + parent + configClass.getSimpleName();
+            LangDataGenerator.normal.getCollector(annotation.locale()).addTranslation(key,annotation.value());
         }
         scan(configClass,parent);
         for(var i : configClass.getDeclaredClasses()){
-            scanDeep(i,parent.isEmpty()?i.getSimpleName()+".":parent+i.getSimpleName()+".");
+            scanDeep(i,"");
+            // Not a good way,but no better choices.
+            // So why Configure uses this localization key?
+//            scanDeep(i,parent.isEmpty()?i.getSimpleName()+".":parent+i.getSimpleName()+".");
         }
     }
     public static <T> void scanDeep(Class<T> configClass){

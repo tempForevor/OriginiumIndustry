@@ -1,7 +1,7 @@
 package com.apcp.originium_industry.integration.jade.provider;
 
-import com.apcp.originium_industry.data.machine.part.SuperMEPatternBufferPart;
-import com.gregtechceu.gtceu.GTCEu;
+import com.apcp.originium_industry.commmon.machine.part.SuperMEPatternBufferPart;
+import com.apcp.originium_industry.data.machine.OICustomPartMachines;
 import com.gregtechceu.gtceu.api.machine.IMachineBlockEntity;
 import com.gregtechceu.gtceu.client.util.TooltipHelper;
 import com.gregtechceu.gtceu.integration.jade.GTElementHelper;
@@ -54,7 +54,7 @@ public class SuperMEPatternBufferProvider implements IBlockComponentProvider, IS
 
     @Override
     public ResourceLocation getUid() {
-        return GTCEu.id("me_pattern_buffer");
+        return OICustomPartMachines.SUPER_ME_PATTERN_BUFFER.machine.getId();
     }
 
     public static void writeBufferTag(CompoundTag compoundTag, SuperMEPatternBufferPart buffer) {

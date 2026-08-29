@@ -3,7 +3,8 @@ package com.apcp.originium_industry.data.block;
 import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.gtaddon.OIBlock;
 
-public class OICustomBlocks {
+public class OICustomBlocks{
+
     public static OIBlock ORIGINIUM_CASING_t1 = new OIBlock("originium_casing_t1");
 
     public static void init(){

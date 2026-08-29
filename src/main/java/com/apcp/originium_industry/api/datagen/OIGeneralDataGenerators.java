@@ -30,7 +30,7 @@ public class OIGeneralDataGenerators {
 
         OIModelInitializer.init();
 
-        generator.addProvider(event.includeClient(),new OIBlockModelGenerator(generator,helper));
+//        generator.addProvider(event.includeClient(),new OIBlockModelGenerator(generator,helper));
         generator.addProvider(event.includeClient(),new OIItemModelGenerator(generator,helper));
     }
 }

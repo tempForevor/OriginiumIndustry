@@ -6,7 +6,8 @@
   "mixins": [
     "gtceu.OIMixinGTRecipeBuilder",
     "gtceu.OIMixinMEPatternBufferPartMachine",
-    "gtceu.OIMixinParallelHatchPartMachine"
+    "gtceu.OIMixinParallelHatchPartMachine",
+    "gtceu.OIMixinSimpleTieredMachine"
   ],
   "client": [
   ],

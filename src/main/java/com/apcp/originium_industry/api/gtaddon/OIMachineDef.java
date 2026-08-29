@@ -52,12 +52,15 @@ public class OIMachineDef {
     public String generateTooltipId(){
         return generateId() + ".tooltip";
     }
+
+    @SuppressWarnings("UnusedReturnValue")
     public OIMachineDef applyLang(){
         lang.apply((k,v)-> LangDataGenerator.normal.getCollector(k).addTranslation(generateId(),v));
         tooltipLang.apply((k,v)->LangDataGenerator.normal.getCollector(k).addTranslation(generateTooltipId(),v));
         return this;
     }
 
+    @Deprecated
     public OIMachineDef initModels(){
         OIBlockModelGenerator.collector.modelGenerators
                 .put(machine.getBlock(),

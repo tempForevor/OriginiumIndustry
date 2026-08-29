@@ -2,8 +2,6 @@ package com.apcp.originium_industry.data.element;
 
 
 import com.apcp.originium_industry.api.gtaddon.OIElement;
-import com.gregtechceu.gtceu.api.data.chemical.Element;
-import com.gregtechceu.gtceu.api.registry.GTRegistries;
 
 public class OIExtendElement {
 

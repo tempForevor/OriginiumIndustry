@@ -17,7 +17,7 @@ import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
-public class OIOre {
+public class OIOre{
 
     public static GTOreDefinition ORIGINIUM_VEIN = create(OIMod.id("originium_vein"), vein -> vein
             .clusterSize(UniformInt.of(32, 40)).density(0.4f).weight(40)

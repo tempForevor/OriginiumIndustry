@@ -1,4 +1,4 @@
-package com.apcp.originium_industry.data.machine.single.uiholder;
+package com.apcp.originium_industry.commmon.machine.single.uiholder;
 
 import com.apcp.originium_industry.api.tectree.OITecInfo;
 import com.apcp.originium_industry.api.tectree.TecTree;

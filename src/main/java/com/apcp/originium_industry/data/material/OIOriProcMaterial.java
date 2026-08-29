@@ -3,9 +3,6 @@ package com.apcp.originium_industry.data.material;
 import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.gtaddon.OIMaterial;
 import com.apcp.originium_industry.data.element.OIExtendElement;
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
 public class OIOriProcMaterial {

@@ -11,24 +11,11 @@ import org.spongepowered.asm.mixin.*;
 @Mixin(MEPatternBufferPartMachine.class)
 public class OIMixinMEPatternBufferPartMachine {
 
-    @Setter
-    @Getter
     @Unique
-    private static int OI$MaxPatternCount = 27;
+    private static final int OI$MaxPatternCount = 27;
 
     @Final
     @Mutable
     @Shadow(remap = false)
-    @Setter
-    @Getter
     protected static int MAX_PATTERN_COUNT = OI$MaxPatternCount;
-
-    @Final
-    @Mutable
-    @Shadow(remap = false)
-    @Getter
-    @Persisted
-    @DescSynced
-    private final CustomItemStackHandler patternInventory = new CustomItemStackHandler(OI$MaxPatternCount);
-
 }

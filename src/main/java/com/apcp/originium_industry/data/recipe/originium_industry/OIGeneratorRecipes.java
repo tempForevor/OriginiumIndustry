@@ -1,13 +1,11 @@
 package com.apcp.originium_industry.data.recipe.originium_industry;
 
-import com.apcp.originium_industry.data.item.OIOriProcItems;
 import com.apcp.originium_industry.data.material.OIElementMaterial;
 import com.apcp.originium_industry.data.material.OIOriProcMaterial;
-import com.apcp.originium_industry.data.recipe_type.OICustomRecipeType;
+import com.apcp.originium_industry.commmon.recipe_type.OICustomRecipeType;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;

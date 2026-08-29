@@ -1,4 +1,4 @@
-package com.apcp.originium_industry.data.recipe_type;
+package com.apcp.originium_industry.commmon.recipe_type;
 
 import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.gtaddon.OIRecipeType;

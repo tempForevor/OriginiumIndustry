@@ -7,8 +7,9 @@ import com.apcp.originium_industry.data.block.OICustomBlocks;
 import com.apcp.originium_industry.data.item.OIItems;
 import com.apcp.originium_industry.data.machine.OIMachines;
 import com.apcp.originium_industry.data.material.OIExtendMaterial;
-import com.apcp.originium_industry.data.recipe_type.OICustomRecipeType;
+import com.apcp.originium_industry.commmon.recipe_type.OICustomRecipeType;
 import com.apcp.originium_industry.data.tectree.OITecTreeItems;
+import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
@@ -22,6 +23,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -43,6 +45,7 @@ public class OIMod {
 
     public OIMod() {
 
+        //noinspection ConstantValue
         if (true) {
             IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -62,19 +65,18 @@ public class OIMod {
             // we need to register our object like this!
             MinecraftForge.EVENT_BUS.register(this);
 
-            OIREGISTRATE.registerRegistrate();
+            OIConfigHolder.init();
             OIItem.itemDeferredRegister.register(modEventBus);
             OIItems.init();
             OITecTreeItems.init(TEC_TREE);
             OICustomBlocks.init();
         }
 
-
-        OIConfigHolder.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> LOGGER.info("Hello from common setup! This is *after* registries are done, so we can do this:"));
+        OIAEAddon.onCellRegistry();
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
@@ -93,6 +95,8 @@ public class OIMod {
     public static boolean isDataGen() {
         return FMLLoader.getLaunchHandler().isData();
     }
+    public static boolean isDev(){return !isProd();}
+    public static boolean isProd(){return FMLLoader.isProduction();}
 
     /**
      * Create a material manager for your mod using GT's API.

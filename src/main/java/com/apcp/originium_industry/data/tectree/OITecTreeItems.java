@@ -3,7 +3,6 @@ package com.apcp.originium_industry.data.tectree;
 import com.apcp.originium_industry.OIMod;
 import com.apcp.originium_industry.api.tectree.OITecInfo;
 import com.apcp.originium_industry.api.tectree.TecTree;
-import com.gregtechceu.gtceu.common.data.GTItems;
 import javafx.util.Pair;
 
 public class OITecTreeItems {
@@ -77,7 +76,7 @@ public class OITecTreeItems {
                         只可惜，它是封闭的。它不能保护它所包裹的实体，它只能保护被它吞噬的，被转换到内化宇宙中的实体。
                         即使如此，我们也有能力逃进内化宇宙之中，直到研究出对抗[观察者]的对策。
                         可时间如一把无形的利刃，抹杀了这一可能。在研究出源石的同时，我们也只剩下13人幸存。[保存者]计划失败了，我们高估了自己获取能源的能力，也低估了[AriEta-42]的能源需求。
-                        现在，我们之能把希望寄托与下一文明。
+                        现在，我们只能把希望寄托与下一文明。
                         
                         我们将[Ori-Eps]“源石”与[AriEta-42]结合，利用源石的[Eps-逆激化]和[Iota-同化]能力从时空连续体中偷取巨量的能量，并将其塑造成一个包裹整个星球的护罩，足以为新生的文明提供持久的保护。
                         通过源石的内化宇宙，我们编码入我们的科技样本，并以此影响该星球的生物，催化他们在短时间内进行飞速的发展。
